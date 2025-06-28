@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reeach - Premium Taxi Booking Platform</title>
+    <meta name="description" content="Reeach revolutionizes urban transportation with instant bookings, professional drivers, and seamless rides. Experience the future of taxi services today.">
+    <meta name="keywords" content="taxi booking, ride sharing, transportation, urban mobility, professional drivers">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h2>Reeach</h2>
+                <div class="logo-underline"></div>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <p class="loading-text">Loading your premium ride experience...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" data-aos="fade-right" data-aos-duration="1000">
+                <h2>Reeach</h2>
+                <span class="logo-tagline">Premium Rides</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="100">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="200">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="300">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="500">
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="600">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item" data-aos="fade-down" data-aos-delay="700">
+                    <a href="#" class="nav-link cta-btn" onclick="openBookingModal()">
+                        <i class="fas fa-car"></i>
+                        Book Now
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-star"></i>
+                    <span>Rated #1 Taxi Service</span>
+                </div>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    Your Premium <span class="gradient-text typing-text">Taxi Booking</span> Experience
+                </h1>
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    Reeach revolutionizes urban transportation with instant bookings, professional drivers, 
+                    and seamless rides. Experience the future of taxi services today.
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                    <button class="btn btn-primary pulse-btn" onclick="openBookingModal()">
+                        <i class="fas fa-car"></i>
+                        Book Your Ride
+                        <span class="btn-shine"></span>
+                    </button>
+                    <button class="btn btn-secondary hover-lift">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </button>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                    <div class="stat counter-item">
+                        <h3 data-count="50000">0</h3>
+                        <p>Happy Customers</p>
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="stat counter-item">
+                        <h3 data-count="1000">0</h3>
+                        <p>Professional Drivers</p>
+                        <div class="stat-icon"><i class="fas fa-car"></i></div>
+                    </div>
+                    <div class="stat counter-item">
+                        <h3 data-count="24">0</h3>
+                        <p>Hours Service</p>
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">
+                <div class="phone-mockup floating-phone">
+                    <div class="phone-screen">
+                        <div class="app-interface">
+                            <div class="app-header slide-in-top">
+                                <div class="location-input">
+                                    <i class="fas fa-map-marker-alt pulse-icon"></i>
+                                    <span>Current Location</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="map-area fade-in-map">
+                                <div class="map-pin bounce-pin">📍</div>
+                                <div class="route-line animated-route"></div>
+                                <div class="map-cars">
+                                    <div class="car-icon car-1">🚗</div>
+                                    <div class="car-icon car-2">🚕</div>
+                                </div>
+                            </div>
+                            <div class="ride-options slide-in-bottom">
+                                <div class="ride-type active hover-scale">
+                                    <i class="fas fa-car pulse-icon"></i>
+                                    <div class="ride-details">
+                                        <span class="ride-name">Standard</span>
+                                        <span class="ride-time">5 min away</span>
+                                    </div>
+                                    <span class="price">$12</span>
+                                </div>
+                                <div class="ride-type hover-scale">
+                                    <i class="fas fa-star pulse-icon"></i>
+                                    <div class="ride-details">
+                                        <span class="ride-name">Premium</span>
+                                        <span class="ride-time">3 min away</span>
+                                    </div>
+                                    <span class="price">$18</span>
+                                </div>
+                            </div>
+                            <button class="book-btn pulse-btn">
+                                <span>Book Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="floating-elements">
+            <div class="floating-element element-1 float-animation"></div>
+            <div class="floating-element element-2 float-animation" style="animation-delay: 2s;"></div>
+            <div class="floating-element element-3 float-animation" style="animation-delay: 4s;"></div>
+            <div class="floating-element element-4 rotate-animation"></div>
+            <div class="floating-element element-5 pulse-animation"></div>
+            <div class="floating-element element-6 float-animation" style="animation-delay: 1s;"></div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p class="trusted-text" data-aos="fade-up">Trusted by 200+ Companies Worldwide</p>
+            <div class="logos-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Microsoft</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-amazon"></i>
+                    <span>Amazon</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-uber"></i>
+                    <span>Uber</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fas fa-utensils"></i>
+                    <span>Netflix</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fas fa-bolt"></i>
+                    <span>Tesla</span>
+                </div>
+                <div class="logo-item hover-lift">
+                    <i class="fab fa-spotify"></i>
+                    <span>Spotify</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge" data-aos="fade-right" data-aos-duration="800">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Reeach</span>
+                    </div>
+                    <h2 class="section-title" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">What is Reeach?</h2>
+                    <p class="section-description" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+                        Reeach is a cutting-edge taxi booking platform that connects passengers with professional drivers 
+                        through intelligent matching algorithms. Our platform streamlines the entire booking process, 
+                        from pickup to destination, ensuring safe, comfortable, and reliable transportation.
+                    </p>
+                    <p class="section-description" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000">
+                        With advanced features like real-time tracking, secure payments, dynamic pricing, and 24/7 customer 
+                        support, Reeach is transforming how people move around cities worldwide.
+                    </p>
+                    <div class="about-features" data-aos="fade-right" data-aos-delay="800" data-aos-duration="1000">
+                        <div class="feature-item hover-scale">
+                            <i class="fas fa-shield-alt pulse-icon"></i>
+                            <span>Safe & Secure</span>
+                        </div>
+                        <div class="feature-item hover-scale">
+                            <i class="fas fa-clock pulse-icon"></i>
+                            <span>24/7 Available</span>
+                        </div>
+                        <div class="feature-item hover-scale">
+                            <i class="fas fa-star pulse-icon"></i>
+                            <span>Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-grid">
+                    <div class="grid-item hover-lift rotate-on-hover" data-aos="zoom-in" data-aos-delay="200" style="background: linear-gradient(135deg, #005CFF, #008CFF);">
+                        <i class="fas fa-mobile-alt bounce-icon"></i>
+                        <h3>Mobile First</h3>
+                        <p>Optimized for mobile experience</p>
+                    </div>
+                    <div class="grid-item hover-lift rotate-on-hover" data-aos="zoom-in" data-aos-delay="400" style="background: linear-gradient(135deg, #8B5CF6, #A855F7);">
+                        <i class="fas fa-bolt bounce-icon"></i>
+                        <h3>Lightning Fast</h3>
+                        <p>Quick booking in seconds</p>
+                    </div>
+                    <div class="grid-item hover-lift rotate-on-hover" data-aos="zoom-in" data-aos-delay="600" style="background: linear-gradient(135deg, #10B981, #059669);">
+                        <i class="fas fa-shield-alt bounce-icon"></i>
+                        <h3>Secure</h3>
+                        <p>Bank-grade security</p>
+                    </div>
+                    <div class="grid-item hover-lift rotate-on-hover" data-aos="zoom-in" data-aos-delay="800" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+                        <i class="fas fa-users bounce-icon"></i>
+                        <h3>Community</h3>
+                        <p>Growing user community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-cogs"></i>
+                    <span>Our Services</span>
+                </div>
+                <h2 class="section-title white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">What do we offer?</h2>
+                <p class="section-description white" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Comprehensive taxi booking solutions for every need</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card hover-lift" data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-icon pulse-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Round-the-clock assistance for all your travel needs with dedicated support team</p>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="service-card hover-lift" data-aos="flip-left" data-aos-delay="200">
+                    <div class="service-icon pulse-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3>Advanced Scalability</h3>
+                    <p>Seamlessly scales with growing demand and user base across multiple cities</p>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="service-card hover-lift" data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-icon pulse-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Multi-Platform Integration</h3>
+                    <p>Available across all devices and platforms with seamless synchronization</p>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="service-card hover-lift" data-aos="flip-left" data-aos-delay="400">
+                    <div class="service-icon pulse-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade security for all transactions and data with end-to-end encryption</p>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-text">
+                    <div class="section-badge" data-aos="fade-right" data-aos-duration="800">
+                        <i class="fas fa-star"></i>
+                        <span>Core Features</span>
+                    </div>
+                    <h2 class="section-title" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">Reeach Core Features</h2>
+                    <div class="features-list">
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Instant Booking & Confirmation</span>
+                        </div>
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Real-time GPS Tracking</span>
+                        </div>
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="500">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Multiple Payment Options</span>
+                        </div>
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="600">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Professional Verified Drivers</span>
+                        </div>
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="700">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Dynamic Pricing Algorithm</span>
+                        </div>
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="800">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>24/7 Emergency Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="features-image" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+                    <div class="driver-card hover-lift">
+                        <div class="driver-info slide-in-right">
+                            <div class="driver-avatar pulse-avatar">
+                                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='35' r='15' fill='%23fff'/><path d='M20 80 Q50 60 80 80' fill='%23fff'/></svg>" alt="Driver">
+                            </div>
+                            <div class="driver-details">
+                                <h4>John Smith</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star star-animation"></i>
+                                    <i class="fas fa-star star-animation"></i>
+                                    <i class="fas fa-star star-animation"></i>
+                                    <i class="fas fa-star star-animation"></i>
+                                    <i class="fas fa-star star-animation"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <p>Toyota Camry • ABC-123</p>
+                            </div>
+                        </div>
+                        <div class="trip-info slide-in-left">
+                            <div class="trip-route">
+                                <div class="route-point">
+                                    <i class="fas fa-circle pulse-icon" style="color: #10b981;"></i>
+                                    <span>Downtown Plaza</span>
+                                </div>
+                                <div class="route-line animated-route"></div>
+                                <div class="route-point">
+                                    <i class="fas fa-map-marker-alt pulse-icon" style="color: #ef4444;"></i>
+                                    <span>Airport Terminal</span>
+                                </div>
+                            </div>
+                            <div class="trip-price counter-price" data-price="24.50">$0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Features Grid -->
+    <section class="standard-features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-list"></i>
+                    <span>Standard Features</span>
+                </div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Standard Features on Reeach</h2>
+                <p class="section-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Everything you need for a perfect ride experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Advanced Search</h3>
+                    <p>Find rides with intelligent search and filtering options</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Smart Filtering</h3>
+                    <p>Filter by price, car type, and driver ratings</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Real-time Notifications</h3>
+                    <p>Stay updated with instant ride notifications</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Multi-language Support</h3>
+                    <p>Available in 25+ languages worldwide</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Protocols</h3>
+                    <p>End-to-end encryption for all data</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Customizable Interface</h3>
+                    <p>Personalize your app experience</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Route Optimization</h3>
+                    <p>Smart routing for fastest journeys</p>
+                </div>
+                <div class="feature-card hover-lift" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3>Accessibility</h3>
+                    <p>Inclusive design for all users</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-content">
+                <div class="pricing-text">
+                    <div class="section-badge" data-aos="fade-right" data-aos-duration="800">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Transparent Pricing</span>
+                    </div>
+                    <h2 class="section-title white" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">🚖 Transparent Pricing</h2>
+                    <p class="section-description white" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+                        No hidden fees, no surge pricing surprises. Our transparent pricing model ensures 
+                        you always know what you're paying for. Choose from multiple ride options to fit your budget.
+                    </p>
+                    <div class="pricing-features" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000">
+                        <div class="pricing-feature hover-scale">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>No Hidden Charges</span>
+                        </div>
+                        <div class="pricing-feature hover-scale">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Upfront Pricing</span>
+                        </div>
+                        <div class="pricing-feature hover-scale">
+                            <i class="fas fa-check bounce-icon"></i>
+                            <span>Multiple Payment Options</span>
+                        </div>
+                    </div>
+                    <div class="pricing-buttons" data-aos="fade-right" data-aos-delay="800" data-aos-duration="1000">
+                        <button class="btn btn-white hover-lift">
+                            <i class="fas fa-eye"></i>
+                            View Pricing
+                        </button>
+                        <button class="btn btn-outline-white hover-lift">
+                            <i class="fas fa-calculator"></i>
+                            Calculate Fare
+                        </button>
+                    </div>
+                </div>
+                <div class="pricing-mockup" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
+                    <div class="fare-calculator hover-lift">
+                        <div class="calc-header slide-in-top">
+                            <h3>Fare Calculator</h3>
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="calc-content">
+                            <div class="ride-types">
+                                <div class="ride-type active hover-scale" onclick="selectRideType(this)">
+                                    <i class="fas fa-car pulse-icon"></i>
+                                    <div class="ride-info">
+                                        <span class="ride-name">Standard</span>
+                                        <span class="ride-time">5 min away</span>
+                                    </div>
+                                    <span class="ride-price">$12.50</span>
+                                </div>
+                                <div class="ride-type hover-scale" onclick="selectRideType(this)">
+                                    <i class="fas fa-star pulse-icon"></i>
+                                    <div class="ride-info">
+                                        <span class="ride-name">Premium</span>
+                                        <span class="ride-time">3 min away</span>
+                                    </div>
+                                    <span class="ride-price">$18.00</span>
+                                </div>
+                                <div class="ride-type hover-scale" onclick="selectRideType(this)">
+                                    <i class="fas fa-users pulse-icon"></i>
+                                    <div class="ride-info">
+                                        <span class="ride-name">Shared</span>
+                                        <span class="ride-time">8 min away</span>
+                                    </div>
+                                    <span class="ride-price">$8.75</span>
+                                </div>
+                            </div>
+                            <button class="confirm-btn pulse-btn">
+                                <span>Confirm Booking</span>
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-microchip"></i>
+                    <span>Technology Stack</span>
+                </div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Cutting-Edge Technology</h2>
+                <p class="section-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Powered by the latest innovations in transportation technology</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+                        <i class="fas fa-mobile-alt bounce-icon"></i>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Native iOS & Android</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+                        <i class="fas fa-cog rotate-animation"></i>
+                    </div>
+                    <h3>Admin Panel</h3>
+                    <p>Comprehensive Dashboard</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #10B981, #059669);">
+                        <i class="fas fa-route bounce-icon"></i>
+                    </div>
+                    <h3>Auto Dispatch</h3>
+                    <p>Smart Driver Matching</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+                        <i class="fas fa-plug pulse-icon"></i>
+                    </div>
+                    <h3>API Integration</h3>
+                    <p>Third-party Services</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #EF4444, #DC2626);">
+                        <i class="fas fa-wallet bounce-icon"></i>
+                    </div>
+                    <h3>Digital Wallet</h3>
+                    <p>Secure Payments</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="tech-icon hover-lift rotate-on-hover" style="background: linear-gradient(135deg, #6366F1, #4F46E5);">
+                        <i class="fas fa-credit-card pulse-icon"></i>
+                    </div>
+                    <h3>Payment Gateway</h3>
+                    <p>Multiple Options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="download-app">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-download"></i>
+                    <span>Download App</span>
+                </div>
+                <h2 class="section-title white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Download Reeach App</h2>
+                <p class="section-description white" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Get the best taxi booking experience on your mobile device</p>
+            </div>
+            <div class="download-grid">
+                <div class="download-card hover-lift" data-aos="slide-right" data-aos-delay="600">
+                    <div class="card-header">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>For Passengers</h3>
+                    </div>
+                    <ul class="download-features">
+                        <li><i class="fas fa-check bounce-icon"></i> Easy booking process</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Real-time ride tracking</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Secure payment options</li>
+                        <li><i class="fas fa-check bounce-icon"></i> 24/7 customer support</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Ride history & receipts</li>
+                    </ul>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn hover-lift">
+                            <i class="fab fa-apple bounce-icon"></i>
+                            <div>
+                                <span>Download on the</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn hover-lift">
+                            <i class="fab fa-google-play bounce-icon"></i>
+                            <div>
+                                <span>Get it on</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="download-card hover-lift" data-aos="slide-left" data-aos-delay="800">
+                    <div class="card-header">
+                        <i class="fas fa-car"></i>
+                        <h3>For Drivers</h3>
+                    </div>
+                    <ul class="download-features">
+                        <li><i class="fas fa-check bounce-icon"></i> Flexible working hours</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Instant payment processing</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Performance analytics</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Driver support community</li>
+                        <li><i class="fas fa-check bounce-icon"></i> Earnings optimization</li>
+                    </ul>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn hover-lift">
+                            <i class="fab fa-apple bounce-icon"></i>
+                            <div>
+                                <span>Download on the</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn hover-lift">
+                            <i class="fab fa-google-play bounce-icon"></i>
+                            <div>
+                                <span>Get it on</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Frequently Asked Questions</h2>
+                <p class="section-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Have doubts? Get answers right here</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I book a ride with Reeach?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply download our app, enter your pickup and destination locations, choose your preferred ride type, and confirm your booking. A driver will be assigned to you within minutes.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is Reeach available 24/7?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Reeach operates 24 hours a day, 7 days a week. Our drivers are available round the clock to serve you whenever you need a ride.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards, debit cards, digital wallets (Apple Pay, Google Pay), and cash payments. All transactions are secure and encrypted.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I track my ride in real-time?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our app provides real-time GPS tracking so you can see your driver's location and estimated arrival time throughout your journey.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I become a Reeach driver?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To become a driver, download our driver app, complete the registration process, submit required documents, and pass our background check. Once approved, you can start earning immediately.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What safety measures does Reeach have?</span>
+                        <i class="fas fa-chevron-down rotate-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We conduct thorough background checks on all drivers, provide real-time ride tracking, emergency assistance button, driver and vehicle verification, and 24/7 customer support for safety concerns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-badge" data-aos="fade-right" data-aos-duration="800">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </div>
+                    <h2 class="section-title" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">Get in Touch</h2>
+                    <p class="section-description" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+                        Have questions or need support? We're here to help you 24/7.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item hover-scale" data-aos="fade-right" data-aos-delay="600">
+                            <i class="fas fa-phone pulse-icon"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item hover-scale" data-aos="fade-right" data-aos-delay="700">
+                            <i class="fas fa-envelope pulse-icon"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>support@reeach.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item hover-scale" data-aos="fade-right" data-aos-delay="800">
+                            <i class="fas fa-map-marker-alt pulse-icon"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Tech Street, Silicon Valley, CA 94000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="input-animation">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="input-animation">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone" class="input-animation">
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" name="subject" required class="input-animation">
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="driver">Driver Application</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required class="input-animation"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary pulse-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                            <span class="btn-shine"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-logo">
+                        <h3>Reeach</h3>
+                        <p>Premium taxi booking experience</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="hover-lift"><i class="fab fa-facebook bounce-icon"></i></a>
+                        <a href="#" class="hover-lift"><i class="fab fa-twitter bounce-icon"></i></a>
+                        <a href="#" class="hover-lift"><i class="fab fa-instagram bounce-icon"></i></a>
+                        <a href="#" class="hover-lift"><i class="fab fa-linkedin bounce-icon"></i></a>
+                        <a href="#" class="hover-lift"><i class="fab fa-youtube bounce-icon"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h4>About Reeach</h4>
+                    <ul>
+                        <li><a href="#" class="hover-underline">Our Story</a></li>
+                        <li><a href="#" class="hover-underline">Careers</a></li>
+                        <li><a href="#" class="hover-underline">Press</a></li>
+                        <li><a href="#" class="hover-underline">Blog</a></li>
+                        <li><a href="#" class="hover-underline">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" class="hover-underline">Ride Booking</a></li>
+                        <li><a href="#" class="hover-underline">Corporate Travel</a></li>
+                        <li><a href="#" class="hover-underline">Airport Transfers</a></li>
+                        <li><a href="#" class="hover-underline">City Tours</a></li>
+                        <li><a href="#" class="hover-underline">Premium Rides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#" class="hover-underline">Help Center</a></li>
+                        <li><a href="#" class="hover-underline">Contact Us</a></li>
+                        <li><a href="#" class="hover-underline">Safety</a></li>
+                        <li><a href="#" class="hover-underline">Terms of Service</a></li>
+                        <li><a href="#" class="hover-underline">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on new features and offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="input-animation">
+                        <button type="submit" class="hover-lift">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
+                <p>&copy; 2024 Reeach. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="hover-underline">Privacy Policy</a>
+                    <a href="#" class="hover-underline">Terms of Service</a>
+                    <a href="#" class="hover-underline">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-car"></i> Book Your Ride</h2>
+                <span class="close hover-scale" onclick="closeBookingModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="pickup"><i class="fas fa-map-marker-alt"></i> Pickup Location</label>
+                        <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required class="input-animation">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination"><i class="fas fa-flag-checkered"></i> Destination</label>
+                        <input type="text" id="destination" name="destination" placeholder="Enter destination" required class="input-animation">
+                    </div>
+                    <div class="form-group">
+                        <label for="rideType"><i class="fas fa-car"></i> Ride Type</label>
+                        <select id="rideType" name="rideType" required class="input-animation">
+                            <option value="">Select ride type</option>
+                            <option value="standard">Standard - $12.50</option>
+                            <option value="premium">Premium - $18.00</option>
+                            <option value="shared">Shared - $8.75</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime"><i class="fas fa-clock"></i> Booking Time</label>
+                        <select id="bookingTime" name="bookingTime" required class="input-animation">
+                            <option value="now">Book Now</option>
+                            <option value="later">Schedule for Later</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary pulse-btn">
+                        <i class="fas fa-check"></i>
+                        Confirm Booking
+                        <span class="btn-shine"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hover-lift">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Success!</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
